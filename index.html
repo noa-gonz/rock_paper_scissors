@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function getComputerChoice() {
+    const randomInRange = Math.floor((Math.random() * 3));
+    switch (randomInRange) {
+        case 0:
+           return 'rock';
+        case 1:
+           return 'paper';
+        case 2:
+           return 'scissor';
+    };
+    };
+
+    function getHumanChoice() {
+        return prompt('Pick' );
+    };
+
+    function playRound(humanChoice, computerChoice) {
+        const humanChoiceCaseInsensitive = humanChoice.toLowerCase();
+        if (humanChoiceCaseInsensitive == 'paper' && computerChoice == 'rock') {
+            console.log('paper vs rock! +1 to human!');
+            humanScore++;
+        } else if (humanChoiceCaseInsensitive == 'paper' && computerChoice == 'scissor') {
+            console.log('paper vs scissor! +1 to computer!');
+            computerScore++;
+        } else if (humanChoiceCaseInsensitive == 'rock' && computerChoice == 'paper') {
+            console.log('rock vs paper! +1 to computer!');
+            computerScore++;
+        } else if (humanChoiceCaseInsensitive == 'rock' && computerChoice == 'scissor') {
+            console.log('rock vs scissor! +1 to human!');
+            humanScore++;
+        } else if (humanChoiceCaseInsensitive == 'scissor' && computerChoice == 'rock') {
+            console.log('scissor vs rock! +1 to computer!');
+            computerScore++;
+        } else if (humanChoiceCaseInsensitive == 'scissor' && computerChoice == 'paper') {
+            console.log('scissor vs paper! +1 to human!');
+            humanScore++;
+        };
+    };
+
+    function playGame() {
+        for (i = 5; i >= 0; i--){
+            playRound(getHumanChoice(), getComputerChoice());
+        };
+        (humanScore > computerScore) ? console.log('Human Wins!'): console.log('Computer Wins!');
+    };
+
+    let humanScore = 0;
+    let computerScore = 0;
+    playGame();
+</script>
+
+</html>
