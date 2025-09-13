@@ -45,14 +45,18 @@
         } else if (humanChoiceCaseInsensitive == 'scissor' && computerChoice == 'paper') {
             console.log('scissor vs paper! +1 to human!');
             humanScore++;
-        };
+        } else {
+            console.log('Its a tie!');
+        }
     };
 
     function playGame() {
-        for (i = 5; i >= 0; i--){
+        for (i = 4; i >= 0; i--){
             playRound(getHumanChoice(), getComputerChoice());
         };
-        (humanScore > computerScore) ? console.log('Human Wins!'): console.log('Computer Wins!');
+        (humanScore > computerScore) ? console.log('Human Wins!'): 
+        (humanScore < computerScore) ? console.log('Computer Wins!'):
+        console.log('Draw!');
     };
 
     let humanScore = 0;
